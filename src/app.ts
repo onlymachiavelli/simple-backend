@@ -1,10 +1,19 @@
 import express from "express"
+import "dotenv/config"
+import connect from "./utils/mongoConnect"
 
 const app = express()
+const PORT = process.env.PORT || 3000
 
 app.get("/", (req, res) => {
   res.send("Hello World!")
 })
-app.listen(3000, () => {
-  console.log("Server started on port 3000")
-})
+connect()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("Server started on port 3000")
+    })
+  })
+  .catch((e) => {
+    console.log(e)
+  })
