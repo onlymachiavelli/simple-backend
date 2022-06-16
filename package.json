@@ -1,26 +1,36 @@
 {
   "name": "spt",
   "version": "1.0.0",
-  "description": "backend for smart perfumes tunisie",
-  "main": "index.js",
+  "description": "The backedn for smart perfumes tunisie ",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node build/index.js"
   },
   "author": "Machiavelli",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.13",
-    "@types/node": "^18.0.0",
-    "axios": "^0.27.2",
+    "@types/node": "^17.0.23",
+    "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
     "body": "^5.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
+    "dotenv": "^16.0.0",
+    "epxress": "^0.0.1-security",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.8",
+    "mongoose": "^6.2.10",
     "parser": "^0.1.4",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
   }
 }
