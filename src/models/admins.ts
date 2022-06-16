@@ -26,7 +26,7 @@ const adminSchema = new mongoose.Schema(
 
     phone: { type: String, required: true, unique: true },
 
-    createdAt: { type: Date, required: true },
+    createdAt: { type: Date, required: true, default: Date.now() },
     updatedAt: { type: Date, required: true },
   },
   { timestamps: true }

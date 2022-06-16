@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     phone: { type: String, required: true, unique: true },
+    createdAt: { type: Date, required: true, default: Date.now() },
   },
   { timestamps: true }
 )
