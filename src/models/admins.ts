@@ -1,11 +1,17 @@
 import mongoose from "mongoose"
 
-const userSchema = new mongoose.Schema(
+const adminSchema = new mongoose.Schema(
   {
+    accType: {
+      type: String,
+      required: true,
+      enum: ["admin", "user"],
+    },
+
     _id: { type: String, required: true, unique: true },
-    type: { type: String, require: false, default: "user" },
     fullname: {
       type: String,
+
       required: true,
     },
     email: {
@@ -17,9 +23,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     phone: { type: String, required: true, unique: true },
+
+    createdAt: { type: Date, required: true },
+    updatedAt: { type: Date, required: true },
   },
   { timestamps: true }
 )
 
-export default mongoose.model("User", userSchema)
+export default mongoose.model("Admin", adminSchema)
