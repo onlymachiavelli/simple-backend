@@ -3,6 +3,11 @@ import "dotenv/config"
 import connect from "./utils/mongoConnect"
 
 const app = express()
+const cors = require("cors")
+import { json } from "body-parser"
+
+app.use(cors())
+app.use(json())
 const PORT = process.env.PORT || 3000
 
 app.get("/", (req, res) => {
