@@ -5,14 +5,12 @@ import connect from "./utils/mongoConnect"
 const app = express()
 const cors = require("cors")
 import { json } from "body-parser"
-
+import userRoute from "./routes/userRoute"
 app.use(cors())
 app.use(json())
 const PORT = process.env.PORT || 3000
 
-app.get("/", (req, res) => {
-  res.send("Hello World!")
-})
+app.use("/user")
 connect()
   .then(() => {
     app.listen(PORT, () => {
@@ -20,5 +18,5 @@ connect()
     })
   })
   .catch((e) => {
-    console.log(e)
+    console.log("connection error ! 'server !'" + e)
   })
