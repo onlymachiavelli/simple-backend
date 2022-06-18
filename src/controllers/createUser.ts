@@ -11,11 +11,15 @@ const createUser: RequestHandler = async (req, res) => {
   datas.password = await bcrypt.hash(datas.password, 10)
   //find user
   const user: any = await userTasks.getUser(id)
-  if (user) {
+  if (user !== null) {
     res.status(400).send("user already exist")
   } else {
-    await userTasks.createUser(datas)
-    res.status(200).send("user created")
+    try {
+      await userTasks.createUser(datas)
+      res.status(200).send("user created")
+    } catch (e) {
+      res.status(400).send("error")
+    }
   }
 }
 
