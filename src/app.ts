@@ -10,7 +10,7 @@ app.use(cors())
 app.use(json())
 const PORT = process.env.PORT || 3000
 
-app.use("/user")
+app.use("/user", userRoute)
 connect()
   .then(() => {
     app.listen(PORT, () => {
