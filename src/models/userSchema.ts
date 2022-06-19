@@ -1,3 +1,31 @@
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
+
+export class users {
+  @PrimaryColumn({ nullable: false })
+  id: string
+
+  @Column({ nullable: false, default: "user" })
+  type: string
+
+  @Column({ nullable: false })
+  fullname: string
+
+  @Column({ nullable: false, unique: true })
+  email: string
+
+  @Column({ nullable: false })
+  password: string
+
+  @Column({ nullable: false })
+  phone: string
+
+  @Column({ nullable: false })
+  address: string
+
+  @Column({ nullable: false, default: () => Date.now() })
+  createdAt: Date
+}
+
 /*
 import mongoose from "mongoose"
 
