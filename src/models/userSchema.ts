@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
 
+@Entity()
 export class users {
   @PrimaryColumn({ nullable: false })
   id: string
