@@ -1,3 +1,4 @@
+/*
 import mongoose from "mongoose"
 
 const ordersSchema = new mongoose.Schema(
@@ -14,3 +15,5 @@ const ordersSchema = new mongoose.Schema(
 )
 
 export default mongoose.model("Orders", ordersSchema)
+
+*/

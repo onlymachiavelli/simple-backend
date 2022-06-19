@@ -1,3 +1,4 @@
+/*
 import mongoose from "mongoose"
 
 const prodSchema = new mongoose.Schema(
@@ -25,3 +26,5 @@ const prodSchema = new mongoose.Schema(
 )
 
 export default mongoose.model("Product", prodSchema)
+
+*/

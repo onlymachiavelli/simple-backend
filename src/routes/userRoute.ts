@@ -1,3 +1,4 @@
+/*
 import express from "express"
 
 import createUser from "../controllers/createUser"
@@ -7,3 +8,4 @@ const userRoutes = express.Router()
 userRoutes.post("/", createUser.createUser)
 
 export default userRoutes
+ */

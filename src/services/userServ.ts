@@ -1,3 +1,4 @@
+/*
 import User from "../models/userSchema"
 
 export const createUser = async (data: any) => {
@@ -15,3 +16,4 @@ export const deleteUser = async (id: string) => {
 export const getAllUsers = async () => {
   await User.find().lean()
 }
+ */

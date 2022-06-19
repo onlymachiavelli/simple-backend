@@ -1,3 +1,4 @@
+/*
 import * as userTasks from "./../services/userServ"
 
 import express, { RequestHandler } from "express"
@@ -24,3 +25,4 @@ const createUser: RequestHandler = async (req, res) => {
 }
 
 export default { createUser }
+*/
