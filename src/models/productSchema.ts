@@ -1,3 +1,26 @@
+import { Entity, Column, PrimaryColumn } from "typeorm"
+
+@Entity()
+export class Product {
+  @PrimaryColumn({ nullable: false })
+  id: string
+
+  @Column({ nullable: false, default: "product" })
+  type: string
+
+  @Column({ nullable: false })
+  name: string
+
+  @Column({ nullable: false })
+  price: number
+
+  @Column({ nullable: false })
+  description: string
+
+  @Column({ nullable: false, default: () => Date.now() })
+  createdAt: Date
+}
+
 /*
 import mongoose from "mongoose"
 
