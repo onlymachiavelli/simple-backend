@@ -7,7 +7,7 @@ export const createUser = async (datas: any) => {
   await repo.save(datas)
 }
 
-export const getUser = async (_id: string) => {
+export const getUser = async (_id: any) => {
   return await repo.findOneBy({ id: _id })
 }
 
@@ -15,7 +15,7 @@ export const getAllUsers = async () => {
   return await repo.find()
 }
 
-export const deleteUser = async (_id: string) => {
+export const deleteUser = async (_id: any) => {
   const target: any = await getUser(_id)
   await repo.delete(target)
 }
