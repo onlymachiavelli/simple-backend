@@ -6,6 +6,7 @@ import bcrypt from "bcrypt"
 const createUser: RequestHandler = async (req, res) => {
   const datas: any = req.body
   //user should not be existing
+
   const target = await userTasks.getUser(datas.id)
   if (target) {
     res.status(400).send("User already exist ! ")
@@ -24,16 +25,19 @@ const createUser: RequestHandler = async (req, res) => {
     user.email = datas.fullname
     user.password = hashedPass
     user.address = datas.address
-    user.phone = datas.phone 
-     
-    await userTasks.createUser(user).then(()=>{
-      res.status(200).send("User Created")
-    } ).catch((e) =>{
-      console.log(e) 
-      res.status(400).send("an error occured ! ")
-    })
-  }
+    user.phone = datas.phone
 
+    await userTasks
+      .createUser(user)
+      .then(() => {
+        res.status(200).send("User Created")
+      })
+      .catch((e) => {
+        console.log(e)
+        res.status(400).send("an error occured ! ")
+      })
+  }
+}
 export default createUser
 
 /*
