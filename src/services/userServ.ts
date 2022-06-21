@@ -1,3 +1,11 @@
+import { users } from "./../models/userSchema"
+import appDataSource from "../utils/serverConnect"
+export const createUser = async (datas: any) => {
+  await appDataSource.manager.save(datas)
+}
+
+export const getUser = async (id: string) => {}
+
 /*
 import User from "../models/userSchema"
 
