@@ -33,7 +33,7 @@ export const getAllUsers = async () => {
 
 export const deleteUser = async (_id: any) => {
   const target: any = await getUser(_id)
-  await repo.delete(target)
+  await repo.remove(target)
 }
 
 /*
