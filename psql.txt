@@ -1,0 +1,4 @@
+ create table users (id varchar , type varchar , fullname varchar, email varchar unique, password varchar , phone varchar                        unique, address varchar , createdAt date) ;
+
+
+ 
