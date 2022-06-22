@@ -2,17 +2,33 @@ import { users } from "./../models/userSchema"
 import appDataSource from "../utils/serverConnect"
 
 const repo = appDataSource.getRepository(users)
-
+const tbs: any = [
+  "id",
+  "type",
+  "fullname",
+  "email",
+  "phone",
+  "address",
+  "createdat",
+]
 export const createUser = async (datas: any) => {
   await repo.save(datas)
 }
 
 export const getUser = async (_id: any) => {
-  return await repo.findOneBy({ id: _id })
+  //return await repo.findOneBy({ id: _id })
+  return await repo.find({
+    select: tbs,
+    where: {
+      id: _id,
+    },
+  })
 }
 
 export const getAllUsers = async () => {
-  return await repo.find()
+  return await repo.find({
+    select: tbs,
+  })
 }
 
 export const deleteUser = async (_id: any) => {
