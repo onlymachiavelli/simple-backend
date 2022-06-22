@@ -2,12 +2,13 @@ import express from "express"
 
 import createUser from "../controllers/createUser"
 import { getAllUsers, getUser } from "./../controllers/getUser"
-
+import deleteUser from "../controllers/deleteUser"
 const router = express.Router()
 router.post("/", createUser)
 router.get("/", getAllUsers)
 router.get("/u", getUser)
 
+router.delete("/", deleteUser)
 export default router
 /*
 import express from "express"

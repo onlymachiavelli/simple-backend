@@ -14,7 +14,7 @@ const tbs: any = [
 export const createUser = async (datas: any) => {
   await repo.save(datas)
 }
- 
+
 export const getUser = async (_id: string) => {
   //return await repo.findOneBy({ id: _id })
   return await repo.find({
