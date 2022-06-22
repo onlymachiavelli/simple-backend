@@ -7,7 +7,8 @@ const createUser: RequestHandler = async (req, res) => {
   const datas: any = req.body
 
   const target = await userTasks.getUser(datas.id)
-  if (target) {
+  if (target.length > 0) {
+    console.log("the target is  : ", target)
     res.status(400).send("User already exist ! ")
   } else {
     const user = new users()
@@ -18,7 +19,7 @@ const createUser: RequestHandler = async (req, res) => {
 
     user.id = datas.id
     user.fullname = datas.fullname
-    user.email = datas.fullname
+    user.email = datas.email
     user.address = datas.address
     user.phone = datas.phone
     user.createdat = new Date()
