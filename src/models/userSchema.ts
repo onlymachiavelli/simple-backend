@@ -17,14 +17,14 @@ export class users {
   @Column({ nullable: false })
   password: string
 
-  @Column({ nullable: false , unique:true})
+  @Column({ nullable: false, unique: true })
   phone: string
 
   @Column({ nullable: false })
   address: string
 
-  @Column({ nullable: false, default: () => Date.now() })
-  createdAt: Date
+  @Column({ default: () => new Date() })
+  createdat: Date
 }
 
 /*

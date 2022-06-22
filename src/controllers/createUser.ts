@@ -26,8 +26,9 @@ const createUser: RequestHandler = async (req, res) => {
     user.password = hashedPass
     user.address = datas.address
     user.phone = datas.phone
+    user.createdat = new Date()
 
-    await userTasks
+    userTasks
       .createUser(user)
       .then(() => {
         res.status(200).send("User Created")
