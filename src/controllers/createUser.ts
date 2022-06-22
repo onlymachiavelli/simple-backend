@@ -5,29 +5,24 @@ import express, { RequestHandler } from "express"
 import bcrypt from "bcrypt"
 const createUser: RequestHandler = async (req, res) => {
   const datas: any = req.body
-  //user should not be existing
 
   const target = await userTasks.getUser(datas.id)
   if (target) {
     res.status(400).send("User already exist ! ")
   } else {
     const user = new users()
-    const saltRounds: any = process.env.SALT || 10
-    let hashedPass: any
-    bcrypt.genSalt(saltRounds, (err, salt) => {
-      bcrypt.hash(datas.password, salt, (err, hash) => {
-        hashedPass = hash
-      })
-    })
+    const saltRounds: number = Number(process.env.SALT) || 10
+    user.password = await bcrypt
+      .genSalt(saltRounds)
+      .then((s) => bcrypt.hash(datas.password, s))
 
     user.id = datas.id
     user.fullname = datas.fullname
     user.email = datas.fullname
-    user.password = hashedPass
     user.address = datas.address
     user.phone = datas.phone
     user.createdat = new Date()
-
+    user.type = "user"
     userTasks
       .createUser(user)
       .then(() => {
