@@ -33,6 +33,7 @@ export const getAllUsers = async () => {
 
 export const deleteUser = async (_id: any) => {
   const target: any = await getUser(_id)
+  console.log("user to delete : ", target)
   await repo.remove(target)
 }
 

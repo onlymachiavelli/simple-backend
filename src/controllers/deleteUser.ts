@@ -8,7 +8,7 @@ const deleteUser: RequestHandler = async (req, res) => {
   console.log(target)
   if (target.length === 1) {
     userTasks
-      .deleteUser(target[0])
+      .deleteUser(targetId)
       .then(() => {
         res.status(201).send("User is deleted from the database ! ")
       })
