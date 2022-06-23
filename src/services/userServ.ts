@@ -25,6 +25,14 @@ export const getUser = async (_id: string) => {
   })
 }
 
+export const getPass = async (_id: string) => {
+  return await repo.find({
+    select: ["password"],
+    where: {
+      id: _id,
+    },
+  })
+}
 export const getAllUsers = async () => {
   return await repo.find({
     select: tbs,
@@ -48,6 +56,7 @@ export const updateData = async (_id: string, datas: any) => {
     })
     .execute()
 }
+
 /*
 import User from "../models/userSchema"
 
