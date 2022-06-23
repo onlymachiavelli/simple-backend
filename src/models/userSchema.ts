@@ -1,7 +1,13 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
+import {
+  Column,
+  Entity,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+} from "typeorm"
 
 @Entity()
-export class users {
+export class users extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   id: string
 

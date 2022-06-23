@@ -38,7 +38,15 @@ export const deleteUser = async (_id: any) => {
 }
 
 export const updateData = async (_id: string, datas: any) => {
-  await repo.update(_id, datas)
+  //await repo.update(_id, datas)
+  await repo
+    .createQueryBuilder()
+    .update(users)
+    .set(datas)
+    .where({
+      id: _id,
+    })
+    .execute()
 }
 /*
 import User from "../models/userSchema"
