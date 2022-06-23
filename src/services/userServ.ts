@@ -37,6 +37,9 @@ export const deleteUser = async (_id: any) => {
   await repo.remove(target)
 }
 
+export const updateData = async (_id: string, datas: any) => {
+  await repo.update(_id, datas)
+}
 /*
 import User from "../models/userSchema"
 
