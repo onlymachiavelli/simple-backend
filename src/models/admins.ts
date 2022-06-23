@@ -1,3 +1,23 @@
+import { notEqual } from "assert"
+import { Entity, BaseEntity, PrimaryColumn, Column } from "typeorm"
+
+@Entity()
+export class Admins extends BaseEntity {
+  //The id is identity card
+  @PrimaryColumn()
+  id: string
+  @Column({ nullable: false })
+  password: string
+  @Column({ nullable: false, enum: ["user", "admin"] })
+  type: string
+  @Column({ nullable: false, unique: true })
+  email: string
+  @Column({ nullable: false, unique: true })
+  phone: string
+  @Column({ default: () => new Date() })
+  createdat: Date
+}
+
 /*
 import mongoose from "mongoose"
 
