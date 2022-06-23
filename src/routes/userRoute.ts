@@ -4,6 +4,7 @@ import createUser from "../controllers/createUser"
 import { getAllUsers, getUser } from "./../controllers/getUser"
 import deleteUser from "../controllers/deleteUser"
 import updateData from "../controllers/updateUserData"
+import makeAuth from "../controllers/makeAuth"
 const router = express.Router()
 router.post("/", createUser)
 router.get("/", getAllUsers)
@@ -15,6 +16,8 @@ router.delete("/", deleteUser)
 router.patch("/", updateData)
 //to update all the datas!
 router.put("/", updateData)
+
+router.post("/auth", makeAuth)
 export default router
 
 /*
