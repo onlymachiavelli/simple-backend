@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm"
-
+import { type } from "os"
+import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm"
+import { Admins } from "./admins"
 @Entity()
 export class Product {
   @PrimaryColumn({ nullable: false })
@@ -16,6 +17,9 @@ export class Product {
 
   @Column({ nullable: false })
   description: string
+
+  @OneToMany((type) => Admins)
+  addedby: Admins
 
   @Column({ nullable: false, default: () => Date.now() })
   createdAt: Date
