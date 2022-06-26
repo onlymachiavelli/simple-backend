@@ -4,8 +4,13 @@ import {
   PrimaryColumn,
   PrimaryGeneratedColumn,
   BaseEntity,
+  OneToMany,
+  OneToOne,
+  ManyToMany,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm"
-
+import { Admins } from "./admins"
 @Entity()
 export class users extends BaseEntity {
   @PrimaryColumn({ nullable: false })
@@ -31,6 +36,12 @@ export class users extends BaseEntity {
 
   @Column({ default: () => new Date() })
   createdat: Date
+
+  @ManyToOne((type) => Admins)
+  //@JoinColumn()
+  createdby: Admins
+  //@Column({ nullable: false })
+  //createdby: string
 }
 
 /*
