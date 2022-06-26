@@ -1,5 +1,5 @@
 import { type } from "os"
-import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm"
+import { Entity, Column, PrimaryColumn, OneToOne } from "typeorm"
 import { Admins } from "./admins"
 @Entity()
 export class Product {
@@ -18,7 +18,7 @@ export class Product {
   @Column({ nullable: false })
   description: string
 
-  @OneToMany((type) => Admins)
+  @OneToOne((type) => Admins)
   addedby: Admins
 
   @Column({ nullable: false, default: () => Date.now() })
