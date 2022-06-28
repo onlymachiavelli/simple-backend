@@ -1,4 +1,3 @@
-import { type } from "os"
 import { Entity, Column, PrimaryColumn, OneToOne } from "typeorm"
 import { Admins } from "./admins"
 @Entity()

@@ -25,7 +25,7 @@ export const getPass = async (_id: string) => {
     },
   })
 }
-export const getAllUsers = async () => {
+export const getAlladmins = async () => {
   return await repo.find({
     select: tbs,
   })
