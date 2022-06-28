@@ -9,7 +9,7 @@ const createUser: RequestHandler = async (req, res) => {
   const target = await userTasks.getUser(datas.id)
   if (target.length > 0) {
     console.log("the target is  : ", target)
-    res.status(400).send("User already exist ! ")
+    res.status(422).send("User already exist ! ")
   } else {
     const user = new users()
     const saltRounds: number = Number(process.env.SALT) || 10
