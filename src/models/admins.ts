@@ -7,15 +7,20 @@ export class Admins extends BaseEntity {
   @PrimaryColumn()
   id: string
   @Column({ nullable: false })
-  @Column({ nullable: false })
   fullname: string
+
+  @Column({ nullable: false })
   password: string
+
   @Column({ nullable: false, enum: ["user", "admin", "done"] })
   type: string
+
   @Column({ nullable: false, unique: true })
   email: string
+
   @Column({ nullable: false, unique: true })
   phone: string
+
   @Column({ default: () => new Date() })
   createdat: Date
 }

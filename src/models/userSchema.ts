@@ -37,9 +37,9 @@ export class users extends BaseEntity {
   @Column({ default: () => new Date() })
   createdat: Date
 
-  @ManyToOne((type) => Admins)
+  //@ManyToOne((type) => Admins)
   //@JoinColumn()
-  createdby: Admins
+  //createdby: Admins
   //@Column({ nullable: false })
   //createdby: string
 }

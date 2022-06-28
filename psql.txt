@@ -1,4 +1,4 @@
  create table users (id varchar , type varchar , fullname varchar, email varchar unique, password varchar , phone varchar                        unique, address varchar , createdAt date) ;
 
 
- 
+ create table admins (id varchar primary key ,fullname varchar not null, password varchar not null , type varchar not null  , email varchar not null , phone varchar not null , createdat date not null);
