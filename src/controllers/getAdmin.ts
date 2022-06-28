@@ -10,7 +10,7 @@ const getAdmin: RequestHandler = async (req, res) => {
     console.log(target[0])
     res.status(302).send(target)
   } else {
-    res.status(404).send("User doesn't exist ! ")
+    res.status(404).send("Admin doesn't exist ! ")
   }
 }
 

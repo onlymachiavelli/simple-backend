@@ -5,9 +5,11 @@ export class Product {
   @PrimaryColumn({ nullable: false })
   id: string
 
-  @Column({ nullable: false, default: "product" })
+  @Column({ nullable: false, default: "perfume" })
   type: string
 
+  @Column({ nullable: false, unique: true })
+  ref: string
   @Column({ nullable: false })
   name: string
 
@@ -23,7 +25,6 @@ export class Product {
   @Column({ nullable: false, default: () => Date.now() })
   createdAt: Date
 }
-
 /*
 import mongoose from "mongoose"
 

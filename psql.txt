@@ -2,3 +2,4 @@
 
 
  create table admins (id varchar primary key ,fullname varchar not null, password varchar not null , type varchar not null  , email varchar not null , phone varchar not null , createdat date not null);
+create table products (id varchar primary key, type varchar default 'perfume' , ref varchar unique , name  varchar , price decimal(10,3),description varchar , addedby  varchar , createdat date ) ;
