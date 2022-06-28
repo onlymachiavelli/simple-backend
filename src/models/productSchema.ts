@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, OneToOne, BaseEntity } from "typeorm"
 import { Admins } from "./admins"
 @Entity()
-export class Product extends BaseEntity {
+export class Products extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   id: string
 
@@ -23,7 +23,7 @@ export class Product extends BaseEntity {
   addedby: Admins
 
   @Column({ nullable: false, default: () => Date.now() })
-  createdAt: Date
+  createdat: Date
 }
 /*
 import mongoose from "mongoose"
