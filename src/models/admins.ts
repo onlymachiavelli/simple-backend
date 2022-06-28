@@ -7,6 +7,8 @@ export class Admins extends BaseEntity {
   @PrimaryColumn()
   id: string
   @Column({ nullable: false })
+  @Column({ nullable: false })
+  fullname: string
   password: string
   @Column({ nullable: false, enum: ["user", "admin", "done"] })
   type: string

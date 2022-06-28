@@ -21,6 +21,16 @@ const createAdmin: RequestHandler = async (req, res) => {
     admin.type = "admin"
     admin.phone = datas.phone
     admin.email = datas.email
+    admin.fullname = datas.fullname
+
+    adminTasks
+      .createAdmin(admin)
+      .then(() => {
+        res.status(201).send("Admin is created ! ")
+      })
+      .catch((e) => {
+        res.status(400).send("Error creating the admin ! ")
+      })
   }
 }
 
