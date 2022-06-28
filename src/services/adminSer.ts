@@ -33,7 +33,6 @@ export const getAlladmins = async () => {
 
 export const deleteAdmin = async (_id: any) => {
   const target: any = await getAdmin(_id)
-  console.log("user to delete : ", target)
   await repo.remove(target)
 }
 

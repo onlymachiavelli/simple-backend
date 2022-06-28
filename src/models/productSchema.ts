@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryColumn, OneToOne } from "typeorm"
+import { Entity, Column, PrimaryColumn, OneToOne, BaseEntity } from "typeorm"
 import { Admins } from "./admins"
 @Entity()
-export class Product {
+export class Product extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   id: string
 
