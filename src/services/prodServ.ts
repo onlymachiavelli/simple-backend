@@ -1,6 +1,14 @@
 import { Products } from "./../models/productSchema"
 
 export const postProd = async (datas: any) => {
+  console.log(
+    "buggy ",
+    await Products.find({
+      where: {
+        id: "1",
+      },
+    })
+  )
   await Products.save(datas)
 }
 

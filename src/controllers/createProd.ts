@@ -13,7 +13,7 @@ const createProd: RequestHandler = async (req, res) => {
         res.status(201).send("Done saving the prod ")
       })
       .catch((e) => {
-        res.send(400).send("Error saving the prod")
+        res.status(400).send("Error saving the prod")
         console.log(e)
       })
   }

@@ -1,8 +1,16 @@
-import { Entity, Column, PrimaryColumn, OneToOne, BaseEntity } from "typeorm"
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  OneToOne,
+  BaseEntity,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+} from "typeorm"
 import { Admins } from "./admins"
 @Entity()
 export class Products extends BaseEntity {
-  @PrimaryColumn({ nullable: false })
+  @PrimaryColumn()
   id: string
 
   @Column({ nullable: false, default: "perfume" })
@@ -19,7 +27,8 @@ export class Products extends BaseEntity {
   @Column({ nullable: false })
   description: string
 
-  @OneToOne((type) => Admins)
+  @OneToOne(() => Admins, (admins) => admins.id)
+  @JoinColumn({ name: "id" })
   addedby: Admins
 
   @Column({ nullable: false, default: () => Date.now() })
