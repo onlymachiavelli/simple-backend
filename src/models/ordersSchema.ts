@@ -17,10 +17,22 @@ export class Orders extends BaseEntity {
   @JoinColumn()
   userid: users
 
+  @Column({
+    nullable: false,
+    array: true,
+  })
+  products: object[]
   @Column({ nullable: false, default: () => Date.now() })
   orderdate: Date
 }
+//Each product should contain these datas !
+/*
+  name of the prod -> string 
+  price  -> decimal / Number 
+  ref  -> string 
 
+
+*/
 /*
 import mongoose from "mongoose"
 
