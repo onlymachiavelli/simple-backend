@@ -2,7 +2,7 @@ import {
   Entity,
   Column,
   PrimaryColumn,
-  OneToOne,
+  ManyToOne,
   BaseEntity,
   PrimaryGeneratedColumn,
   JoinColumn,
@@ -27,8 +27,7 @@ export class Products extends BaseEntity {
   @Column({ nullable: false })
   description: string
 
-  @OneToOne(() => Admins, (admins) => admins.id)
-  @JoinColumn({ name: "id" })
+  @ManyToOne(() => Admins, (admins) => admins.id)
   addedby: Admins
 
   @Column({ nullable: false, default: () => Date.now() })

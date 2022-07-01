@@ -1,6 +1,6 @@
 import { notEqual } from "assert"
-import { Entity, BaseEntity, PrimaryColumn, Column } from "typeorm"
-
+import { Entity, BaseEntity, PrimaryColumn, Column, OneToMany } from "typeorm"
+import { Products } from "./productSchema"
 @Entity()
 export class Admins extends BaseEntity {
   //The id is identity card
@@ -23,6 +23,9 @@ export class Admins extends BaseEntity {
 
   @Column({ default: () => new Date() })
   createdat: Date
+
+  @OneToMany(() => Products, (prod) => prod.addedby)
+  prod: Products
 }
 
 /*
