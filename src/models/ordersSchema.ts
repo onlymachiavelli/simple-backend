@@ -1,3 +1,26 @@
+import {
+  Entity,
+  PrimaryColumn,
+  Column,
+  BaseEntity,
+  ManyToMany,
+  JoinColumn,
+} from "typeorm"
+import { users } from "./userSchema"
+
+@Entity()
+export class Orders extends BaseEntity {
+  @PrimaryColumn()
+  orderid: string
+
+  @ManyToMany(() => users, (user) => user.id)
+  @JoinColumn()
+  userid: users
+
+  @Column({ nullable: false, default: () => Date.now() })
+  orderdate: Date
+}
+
 /*
 import mongoose from "mongoose"
 
