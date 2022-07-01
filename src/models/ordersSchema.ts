@@ -22,8 +22,26 @@ export class Orders extends BaseEntity {
     array: true,
   })
   products: object[]
+
   @Column({ nullable: false, default: () => Date.now() })
   orderdate: Date
+}
+
+//to add relations
+export class ServedOrders extends BaseEntity {
+  @PrimaryColumn()
+  orderid: string
+
+  @Column()
+  userid: string
+
+  @Column({ nullable: false })
+  served: boolean
+  @Column()
+  adminid: string
+
+  @Column()
+  servedate: Date
 }
 //Each product should contain these datas !
 /*
