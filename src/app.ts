@@ -12,7 +12,6 @@ import prodRouter from "./routes/prodRoutes"
 app.use(cors())
 app.use(json())
 const PORT = process.env.PORT || 3000
-console.log(String(process.env.PASSWORD))
 //app.use("/user", userRoute)
 appDataSource
   .initialize()

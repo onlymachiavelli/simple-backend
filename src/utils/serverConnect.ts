@@ -9,6 +9,10 @@ const appDataSource = new DataSource({
   entities: [__dirname + "/../models/*.ts"],
 })
 
+console.log(
+  String(process.env.DBPORT)
+)
+
 export default appDataSource
 
 /*
