@@ -1,5 +1,42 @@
+import {Column, PrimaryColumn , Entity, BaseEntity } from 'typeorm'
+
+
+
+@Entity()
+export class Users extends BaseEntity
+{
+  @PrimaryColumn()
+  username : String 
+
+  @Column({nullable:false} ) 
+  password:String 
+
+  @Column({nullable:false })
+  fullname : String 
+
+  @Column({unique:true, nullable: false }) 
+  email : String 
+
+  @Column({unique:true , nullable:false}) 
+  phonenumber: String 
+
+  @Column({nullable:false }) 
+  birthday : Date
+  
+  @Column({nullable:false})
+  adress:String 
+
+  @Column({nullable: false, default:false }) 
+  isverified  : boolean 
+
+  @Column( {nullable:false, default :()=> new Date()}) 
+  createdat  :Date
+
+}
+
+
+/*
 import {
-  Column,
   Entity,
   PrimaryColumn,
   PrimaryGeneratedColumn,
@@ -43,8 +80,6 @@ export class users extends BaseEntity {
   //@Column({ nullable: false })
   //createdby: string
 }
-
-/*
 import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema(
