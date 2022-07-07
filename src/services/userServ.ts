@@ -1,40 +1,44 @@
-import { users } from "./../models/userSchema"
+import { Users } from "./../models/userSchema"
 import appDataSource from "../utils/serverConnect"
 
-const repo = appDataSource.getRepository(users)
+
+//const repos = appDataSource.getRepository(Users)
+
 const tbs: any = [
-  "id",
-  "type",
+  "username",
   "fullname",
   "email",
   "phone",
   "address",
   "createdat",
+  
 ]
 export const createUser = async (datas: any) => {
-  await repo.save(datas)
+  await Users.save(datas)
 }
 
-export const getUser = async (_id: string) => {
+export const getUser = async (_id: any) => {
   //return await repo.findOneBy({ id: _id })
-  return await repo.find({
+  return await Users.find({
     select: tbs,
     where: {
-      id: _id,
+      username: _id,
     },
   })
+
+ 
 }
 
-export const getPass = async (_id: string) => {
-  return await repo.find({
+export const getPass = async (_id: any) => {
+  return await Users.find({
     select: ["password"],
     where: {
-      id: _id,
+      username: _id,
     },
   })
 }
 export const getAllUsers = async () => {
-  return await repo.find({
+  return await Users.find({
     select: tbs,
   })
 }
@@ -42,14 +46,14 @@ export const getAllUsers = async () => {
 export const deleteUser = async (_id: any) => {
   const target: any = await getUser(_id)
   console.log("user to delete : ", target)
-  await repo.remove(target)
+  await Users.remove(target)
 }
 
 export const updateData = async (_id: string, datas: any) => {
   //await repo.update(_id, datas)
-  await repo
+  await Users
     .createQueryBuilder()
-    .update(users)
+    .update(Users)
     .set(datas)
     .where({
       id: _id,
